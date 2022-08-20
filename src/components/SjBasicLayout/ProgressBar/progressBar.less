@@ -1,0 +1,77 @@
+@import (reference) '~ant-design-vue/dist/antd.less';
+@color: @primary-color;
+#nprogress {
+    .bar {
+        background: @color;
+    }
+    .peg{
+        box-shadow: 0 0 10px @color, 0 0 5px @color;
+    }
+    .spinner-icon{
+        border-top-color: @color;
+        border-left-color: @color;
+    }
+}
+
+#progress-bar {
+    pointer-events: none;
+    .bar {
+        background: @color;
+
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 2px;
+    }
+    .peg {
+        display: block;
+        position: absolute;
+        right: 0px;
+        width: 100px;
+        height: 100%;
+        box-shadow: 0 0 10px @color, 0 0 5px @color;
+        opacity: 1.0;
+
+        -webkit-transform: rotate(3deg) translate(0px, -4px);
+        -ms-transform: rotate(3deg) translate(0px, -4px);
+        transform: rotate(3deg) translate(0px, -4px);
+    }
+    .spinner {
+        display: block;
+        position: fixed;
+        z-index: 1031;
+        top: 15px;
+        right: 15px;
+    }
+    .spinner-icon {
+        width: 18px;
+        height: 18px;
+        box-sizing: border-box;
+
+        border: solid 2px transparent;
+        border-top-color: @color;
+        border-left-color: @color;
+        border-radius: 50%;
+
+        animation:progress-bar-spinner 400ms linear infinite;
+    }
+}
+
+.progress-bar-custom-parent {
+    overflow: hidden;
+    position: relative;
+    #progress-bar {
+        .spinner,.bar{
+            position: absolute;
+        }
+    }
+}
+
+@keyframes progress-bar-spinner {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

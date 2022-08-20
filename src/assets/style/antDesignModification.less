@@ -1,0 +1,231 @@
+/*** 覆写ant-design默认样式 ***/
+@import "./theme.less";
+
+.primary-tag {
+  height: 22px;
+  padding: 0 8px;
+  -webkit-margin-end: 4px;
+  margin-inline-end: 4px;
+  margin-right: 4px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background: @primary-color-4 !important;
+  color: @primary-color-2 !important;
+  border-color: @primary-color-3 !important;
+  .anticon.anticon-close.ant-tag-close-icon {
+    color: @primary-color-2 !important;
+  }
+}
+// a-select
+.ant-select {
+  &.ant-select-multiple {
+    .ant-select-selection-item {
+      .primary-tag();
+      .ant-select-selection-item-remove {
+        color: @primary-color-2;
+      }
+    }
+    .ant-select-selection-item-content {
+      line-height: 20px;
+    }
+  }
+}
+.ant-select-dropdown-empty {
+  //min-width: 380px !important;
+  //height: 287px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .ant-empty-image {
+    width: 114px;
+    height: 70px !important;
+    background-image: url("../images/nullSearch.png");
+    position: relative;
+    margin-bottom: 40px;
+    background-size: cover;
+    &::after {
+      content: "未搜索到结果";
+      display: block;
+      width: max-content;
+      height: 22px;
+      margin: 0 auto;
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.25);
+      line-height: 22px;
+      position: absolute;
+      left: 50%;
+      bottom: -30px;
+      transform: translateX(-50%);
+    }
+  }
+  .ant-empty-img-simple,
+  .ant-empty-description {
+    display: none;
+  }
+}
+
+// a-checkbox
+.ant-checkbox {
+  & + span {
+    position: relative;
+    top: -0.1em;
+  }
+  &-disabled .ant-checkbox-inner {
+    background-color: @gray-color-3;
+    border-color: @gray-color-2 !important;
+  }
+}
+
+//a-form
+
+.customize-pro-form {
+  .ant-form-item-with-help .ant-form-item-explain {
+    position: static;
+  }
+  .ant-form-item-explain-error,
+  .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    color: @warning-color-1;
+  }
+  .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    font-family: LiSungLight;
+    font-size: 14px;
+  }
+  .ant-form-item-has-error
+    :not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+  .ant-form-item-has-error
+    :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
+  .ant-form-item-has-error
+    :not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper,
+  .ant-form-item-has-error
+    :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
+  .ant-form-item-has-error
+    :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
+  .ant-form-item-has-error
+    :not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper:hover {
+    border-color: @warning-color-1;
+  }
+}
+//a-modal
+.ant-modal-content {
+  border-radius: 4px;
+  .ant-modal-header {
+    border-radius: 4px;
+  }
+  .ant-modal-body {
+    background: rgba(245, 247, 250, 0.8);
+    .ant-modal-confirm-body {
+      .anticon-exclamation-circle {
+        color: #faad14;
+      }
+      .ant-modal-confirm-title {
+        font-weight: bold;
+      }
+    }
+    .ant-form-item {
+      margin-bottom: 16px;
+      .ant-form-item-label {
+        label {
+          font-weight: 900;
+        }
+      }
+    }
+  }
+
+  // 按钮颜色
+  .ant-btn.ant-btn-primary:focus {
+    border-color: @primary-color !important;
+    background: @primary-color !important;
+  }
+}
+
+// a-table
+.ant-table {
+  .ant-table-row[rowclassname="active-row"],
+  .ant-table-tbody > tr.ant-table-row[rowclassname="active-row"]:hover > td,
+  .ant-table-tbody
+    > tr[rowclassname="active-row"]
+    > td.ant-table-cell-row-hover {
+    // 选中行
+    background: #1890ff26 !important;
+  }
+}
+
+.ag-header {
+  z-index: 3;
+}
+
+.ant-spin-nested-loading {
+  &.customize-list-spin,
+  &.customize-list-spin .ant-spin-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+.ant-scrolling-effect {
+  .ant-drawer {
+    &.no-padding-drawer {
+      .ant-drawer-body {
+        padding: 0 !important;
+      }
+    }
+    &.customize-drawer {
+      .ant-drawer-title {
+        width: 112px;
+        height: 24px;
+        overflow-wrap: break-word;
+        color: rgba(0, 0, 0, 0.85);
+        font-size: 16px;
+        font-family: PingFangSC-Medium;
+        text-align: left;
+        white-space: nowrap;
+        line-height: 24px;
+        display: block;
+      }
+      .ant-drawer-close {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 0;
+      }
+      .ant-input {
+        font-size: 14px;
+      }
+      .ant-radio-wrapper {
+        font-size: 14px;
+      }
+      .ant-drawer-footer {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 24px;
+        & .ant-btn {
+          font-size: 14px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+.ant-notification,
+.ant-message {
+  z-index: 9999 !important;
+}
+//去除ag-grid操作列右侧竖线
+.ag-pinned-right-header {
+  .ag-header-row {
+    &::after {
+      width: 0 !important;
+    }
+  }
+}
+
+.ant-picker {
+  .ant-picker-active-bar {
+    display: none;
+  }
+}

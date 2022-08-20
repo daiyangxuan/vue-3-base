@@ -1,0 +1,37 @@
+.ant-menu-item,
+.ant-menu-submenu-title {
+  .menu-item();
+}
+& .ant-menu-item-group-list,
+& .ant-menu-sub {
+  display: flex;
+  width: 384px;
+  flex-flow: wrap;
+  padding: 8px 16px !important;
+  & .ant-menu-item {
+    width: 160px;
+    margin-right: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+.menu-item() {
+  padding: 0 16px !important;
+  opacity: 0.8;
+  &:hover {
+    background: #3f495c !important;
+    opacity: 0.96;
+    backdrop-filter: blur(15px);
+    &:after {
+      width: 3px;
+      background: #0091ff;
+      transform: none !important;
+      opacity: 0.96 !important;
+      backdrop-filter: blur(15px);
+      opacity: 0 !important;
+    }
+  }
+
+  transition: background 0s !important;
+  font-weight: 500;
+}
